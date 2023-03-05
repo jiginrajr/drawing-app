@@ -1,28 +1,31 @@
-import React, { useMemo } from "react";
+import React from "react";
 
-const Lines = ({ linePoints = [] }) => {
-
-  const restructuredPoints = useMemo(() => {
+const handleRestructingPoints = (linePoints) => {
     //check if the shape is enclosed
     const updatedPointStructure = [];
     if(linePoints?.length < 2){
         return [];
     }
-    const encloseTheShape =
-      linePoints[0][0] === linePoints[linePoints.length - 1][0] &&
-      linePoints[0][1] === linePoints[linePoints.length - 1][1];
+    // const encloseTheShape =
+    //   linePoints[0][0] === linePoints[linePoints.length - 1][0] &&
+    //   linePoints[0][1] === linePoints[linePoints.length - 1][1];
 
     for (let i = 0; i < linePoints.length - 1; i++) {
-      if (encloseTheShape && i === linePoints.length - 1) {
-        updatedPointStructure.push([...linePoints[i], ...linePoints[0]]);
-        break;
-      }
+      // if (encloseTheShape && i === linePoints.length - 1) {
+      //   updatedPointStructure.push([...linePoints[i], ...linePoints[0]]);
+      //   break;
+      // }
       updatedPointStructure.push([...linePoints[i], ...linePoints[i + 1]]);
     };
     return updatedPointStructure;
-  },[linePoints]);
-  console.log("restructuredPoints",restructuredPoints);
+  };
 
+const Lines = ({ linePoints = [] }) => {
+
+  console.log("linePoints",linePoints);
+  
+  const restructuredPoints = handleRestructingPoints(linePoints);
+  console.log("restructuredPoints",restructuredPoints);
 
   return restructuredPoints.map((point,idx) => {
   return (

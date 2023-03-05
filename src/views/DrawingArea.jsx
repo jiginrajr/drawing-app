@@ -10,6 +10,7 @@ const DrawingArea = () => {
   const [isDrawing, setIsDrawing] = useState(false);
 
   const handlePositionClick = (e) => {
+    console.log("inside handlePositionClick")
     if (!isDrawing) return;
     const container = document
       .getElementById("drawing-area")
@@ -39,19 +40,11 @@ const DrawingArea = () => {
       ];
 
     } 
-    // else {
-      
-    //   updatedLinePoints.push([
-    //     e.clientX - container.left,
-    //     e.clientY - container.top,
-    //   ]);
-    // }
 
-    
     setLinePoints(updatedLinePoints);
   };
 
-  console.log("linePoints", linePoints);
+  // console.log("linePoints", linePoints);
 
   return (
     <>

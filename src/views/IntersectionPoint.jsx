@@ -6,7 +6,8 @@ const IntersectionPoint = ({originPoint, setLinePoints, setIsDrawing}) => {
     e.stopPropagation();
     e.preventDefault();
     setLinePoints(prevPoints => {
-      prevPoints.push(originPoint);
+      // console.log("prevPoints", prevPoints);
+      prevPoints[prevPoints.length - 1] = originPoint;
       return prevPoints
     });
     setIsDrawing(false);
