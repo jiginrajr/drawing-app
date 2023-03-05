@@ -21,7 +21,7 @@ const DrawingArea = () => {
         prevLinePoints.push([e.clientX - container.left, e.clientY - container.top]);
         return prevLinePoints;
       }
-      return [[e.clientX - container.left, e.clientY - container.top]];
+      return [[e.clientX - container.left, e.clientY - container.top], [e.clientX - container.left, e.clientY - container.top]];
     });
       
   };
@@ -32,19 +32,20 @@ const DrawingArea = () => {
       .getBoundingClientRect();
 
     const updatedLinePoints = [...linePoints];
-    if (linePoints.length % 2 === 0) {
+    if (linePoints.length > 0) {
       updatedLinePoints[updatedLinePoints.length - 1] = [
         e.clientX - container.left,
         e.clientY - container.top,
       ];
 
-    } else {
+    } 
+    // else {
       
-      updatedLinePoints.push([
-        e.clientX - container.left,
-        e.clientY - container.top,
-      ]);
-    }
+    //   updatedLinePoints.push([
+    //     e.clientX - container.left,
+    //     e.clientY - container.top,
+    //   ]);
+    // }
 
     
     setLinePoints(updatedLinePoints);

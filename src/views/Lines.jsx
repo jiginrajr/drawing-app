@@ -21,6 +21,7 @@ const Lines = ({ linePoints = [] }) => {
     };
     return updatedPointStructure;
   },[linePoints]);
+  console.log("restructuredPoints",restructuredPoints);
 
 
   return restructuredPoints.map((point,idx) => {
