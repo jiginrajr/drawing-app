@@ -24,7 +24,7 @@ const Lines = ({ linePoints = [] }) => {
 
 
   return restructuredPoints.map((point) => {
-    return (
+  return (
       <line
         x1={point[0]}
         y1={point[1]}
@@ -33,7 +33,7 @@ const Lines = ({ linePoints = [] }) => {
         strokeWidth="1"
         stroke="black"
       />
-    );
+  );
   });
 };
 
