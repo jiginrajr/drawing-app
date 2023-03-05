@@ -23,9 +23,10 @@ const Lines = ({ linePoints = [] }) => {
   },[linePoints]);
 
 
-  return restructuredPoints.map((point) => {
+  return restructuredPoints.map((point,idx) => {
   return (
       <line
+        key={idx}
         x1={point[0]}
         y1={point[1]}
         x2={point[2]}
